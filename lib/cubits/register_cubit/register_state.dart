@@ -5,8 +5,6 @@ sealed class RegisterState {}
 
 final class RegisterInitial extends RegisterState {}
 
-final class registerInitial extends RegisterState {}
-
 final class registerSccess extends RegisterState {}
 
 final class registerLoading extends RegisterState {}

@@ -13,7 +13,7 @@ class RegisterCubit extends Cubit<RegisterState> {
       UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
       emit(registerSccess());
-    } on Exception catch (e) {
+    } catch (e) {
       emit(registerField(msg_erorre: 'try agian'));
     }
   }
