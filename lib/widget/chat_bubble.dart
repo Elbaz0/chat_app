@@ -13,7 +13,7 @@ class chatbubble extends StatelessWidget {
         margin: EdgeInsets.all(8),
         padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: Color.fromARGB(164, 205, 16, 177),
+          color: keycolor,
           borderRadius: BorderRadius.only(
             bottomRight: Radius.circular(16),
             topLeft: Radius.circular(16),
@@ -40,7 +40,7 @@ class chatbubble_frind extends StatelessWidget {
         margin: EdgeInsets.all(8),
         padding: EdgeInsets.all(16),
         decoration: BoxDecoration(
-          color: const Color.fromARGB(255, 186, 0, 158),
+          color: keycolor.withOpacity(.5),
           borderRadius: BorderRadius.only(
             bottomLeft: Radius.circular(16),
             topLeft: Radius.circular(16),

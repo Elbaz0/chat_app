@@ -9,4 +9,7 @@ final class LoginSccess extends LoginState {}
 
 final class LoginLoading extends LoginState {}
 
-final class LoginField extends LoginState {}
+final class LoginField extends LoginState {
+  String msg_erorre;
+  LoginField({required this.msg_erorre});
+}
