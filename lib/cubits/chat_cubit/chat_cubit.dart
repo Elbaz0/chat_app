@@ -1,5 +1,7 @@
+import 'package:app_chat/model/chat_model.dart';
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
 part 'chat_state.dart';
@@ -7,10 +9,10 @@ part 'chat_state.dart';
 class ChatCubit extends Cubit<ChatState> {
   ChatCubit() : super(ChatInitial());
   CollectionReference msgg = FirebaseFirestore.instance.collection('msg');
-  void send_msg({required data, required id_email}) {
+  void send_msg({required msg, required id_email}) {
     try {
       msgg.add({
-        'msg': data,
+        'msg': msg,
         'creater_at': DateTime.now(),
         'id': id_email,
       });
@@ -18,8 +20,16 @@ class ChatCubit extends Cubit<ChatState> {
   }
 
   void get_msg() {
+    print('success');
     msgg.orderBy('creater_at', descending: true).snapshots().listen((event) {
-      emit(Chatsccess());
+      List<chat_model> chat_list = [];
+
+      for (var doc in event.docs) {
+        print('${doc}');
+        chat_list.add(chat_model.fromjson(doc));
+      }
+
+      emit(Chatsccess(chat_list_msg: chat_list));
     });
   }
 }

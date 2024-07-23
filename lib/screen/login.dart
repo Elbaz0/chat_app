@@ -1,3 +1,4 @@
+import 'package:app_chat/cubits/chat_cubit/chat_cubit.dart';
 import 'package:app_chat/cubits/login_cubit/login_cubit.dart';
 import 'package:app_chat/screen/register.dart';
 import 'package:app_chat/widget/buttom.dart';
@@ -23,6 +24,7 @@ class Login extends StatelessWidget {
         } else if (state is LoginSccess) {
           isload = false;
           snack_bar(context, 'Login sccess');
+          BlocProvider.of<ChatCubit>(context).get_msg();
           Navigator.pushNamed(context, 'chat_screen', arguments: email);
         } else if (state is LoginField) {
           snack_bar(context, state.msg_erorre);
@@ -53,7 +55,7 @@ class Login extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                    height: 250,
+                    height: 170,
                   ),
                   Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 10),
