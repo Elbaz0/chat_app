@@ -4,14 +4,14 @@ import 'package:app_chat/model/chat_model.dart';
 
 import 'package:app_chat/widget/chat_bubble.dart';
 import 'package:flutter/material.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class chat extends StatelessWidget {
   chat({
     super.key,
   });
-  // CollectionReference msgg = FirebaseFirestore.instance.collection('msg');
+
   var controller = TextEditingController();
 
   final ScrollController _controller = ScrollController();
@@ -19,7 +19,7 @@ class chat extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var id_email = ModalRoute.of(context)!.settings.arguments;
-    List<chat_model> chat_list = [];
+
     return Scaffold(
         appBar: AppBar(
           centerTitle: true,
@@ -32,13 +32,9 @@ class chat extends StatelessWidget {
         ),
         body: Column(children: [
           Expanded(
-            child: BlocConsumer<ChatCubit, ChatState>(
-              listener: (context, state) {
-                if (state is Chatsccess) {
-                  chat_list = state.chat_list_msg;
-                }
-              },
+            child: BlocBuilder<ChatCubit, ChatState>(
               builder: (context, state) {
+                var chat_list = BlocProvider.of<ChatCubit>(context).chat_list;
                 return ListView.builder(
                   reverse: true,
                   controller: _controller,
@@ -73,9 +69,12 @@ class chat extends StatelessWidget {
                   );
                 },
                 decoration: InputDecoration(
-                  suffixIcon: Icon(
-                    Icons.send,
-                    color: keycolor,
+                  suffixIcon: IconButton(
+                    icon: Icon(
+                      Icons.send,
+                      color: keycolor,
+                    ),
+                    onPressed: () {},
                   ),
                   hintText: 'send msg',
                   border: OutlineInputBorder(
