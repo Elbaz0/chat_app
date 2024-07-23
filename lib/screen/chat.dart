@@ -1,6 +1,6 @@
 import 'package:app_chat/main.dart';
 import 'package:app_chat/model/chat_model.dart';
-import 'package:app_chat/widget/button_msg.dart';
+import 'package:app_chat/widget/buttom_msg.dart';
 import 'package:app_chat/widget/chat_bubble.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -26,7 +26,9 @@ class chat extends StatelessWidget {
           if (snapshot.hasData) {
             List<chat_model> chat_list = [];
             for (int i = 0; i < snapshot.data!.docs.length; i++) {
-              chat_list.add(chat_model.fromjson(snapshot.data!.docs[i]));
+              chat_list.add(
+                chat_model.fromjson(snapshot.data!.docs[i]),
+              );
             }
 
             return Scaffold(
@@ -62,7 +64,7 @@ class chat extends StatelessWidget {
                     height: 80,
                     child: Padding(
                       padding: const EdgeInsets.all(8.0),
-                      child: button_msg(
+                      child: buttom_msg(
                           controller: controller,
                           msgg: msgg,
                           id_email: id_email,

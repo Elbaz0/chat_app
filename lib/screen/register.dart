@@ -1,5 +1,5 @@
 import 'package:app_chat/cubits/register_cubit/register_cubit.dart';
-import 'package:app_chat/widget/button.dart';
+import 'package:app_chat/widget/buttom.dart';
 import 'package:app_chat/widget/snack_bar.dart';
 import 'package:app_chat/widget/text_field.dart';
 import 'package:flutter/material.dart';
@@ -93,7 +93,7 @@ class register extends StatelessWidget {
                           const SizedBox(
                             height: 25,
                           ),
-                          Button(
+                          Buttom(
                               text: 'register',
                               ontap: () {
                                 if (formkey.currentState!.validate()) {

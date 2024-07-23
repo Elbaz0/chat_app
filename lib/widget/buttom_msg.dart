@@ -2,8 +2,8 @@ import 'package:app_chat/main.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class button_msg extends StatelessWidget {
-  const button_msg({
+class buttom_msg extends StatelessWidget {
+  const buttom_msg({
     super.key,
     required this.controller,
     required this.msgg,

@@ -1,6 +1,6 @@
 import 'package:app_chat/cubits/login_cubit/login_cubit.dart';
 import 'package:app_chat/screen/register.dart';
-import 'package:app_chat/widget/button.dart';
+import 'package:app_chat/widget/buttom.dart';
 import 'package:app_chat/widget/snack_bar.dart';
 import 'package:app_chat/widget/text_field.dart';
 
@@ -88,7 +88,7 @@ class Login extends StatelessWidget {
                         const SizedBox(
                           height: 25,
                         ),
-                        Button(
+                        Buttom(
                             text: 'Sign In',
                             ontap: () {
                               if (formkey.currentState!.validate()) {

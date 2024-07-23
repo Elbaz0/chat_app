@@ -10,11 +10,11 @@ class chatbubble extends StatelessWidget {
     return Align(
       alignment: Alignment.centerLeft,
       child: Container(
-        margin: EdgeInsets.all(8),
-        padding: EdgeInsets.all(16),
+        margin: const EdgeInsets.all(8),
+        padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: keycolor,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             bottomRight: Radius.circular(16),
             topLeft: Radius.circular(16),
             topRight: Radius.circular(16),
@@ -22,7 +22,7 @@ class chatbubble extends StatelessWidget {
         ),
         child: Text(
           msg.message,
-          style: TextStyle(color: Colors.white),
+          style: const TextStyle(color: Colors.white),
         ),
       ),
     );
