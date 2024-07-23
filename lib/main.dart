@@ -1,3 +1,4 @@
+import 'package:app_chat/cubits/chat_cubit/chat_cubit.dart';
 import 'package:app_chat/cubits/login_cubit/login_cubit.dart';
 import 'package:app_chat/cubits/register_cubit/register_cubit.dart';
 import 'package:app_chat/screen/chat.dart';
@@ -29,6 +30,9 @@ class Myapp extends StatelessWidget {
         ),
         BlocProvider(
           create: (context) => RegisterCubit(),
+        ),
+        BlocProvider(
+          create: (context) => ChatCubit(),
         ),
       ],
       child: MaterialApp(
